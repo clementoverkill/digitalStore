@@ -15,7 +15,7 @@ module.exports = defineConfig({
     }
   },
   admin: {
-    disable: true,
+    disable: false,
     backendUrl: process.env.BACKEND_URL,
   },
 })
