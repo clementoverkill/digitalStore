@@ -9,6 +9,7 @@
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
-    "startCommand": "yarn start"
+    "startCommand": "yarn start",
+    "preDeployCommand": "npx medusa db:migrate"
   }
 }
