@@ -2,18 +2,17 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy source code first
+# Set Node memory limit for 1GB Railway free plan
+ENV NODE_OPTIONS=--max-old-space-size=768
+
+# Copy source code (includes pre-built .medusa/server)
 COPY . .
 
 # Install dependencies
-RUN corepack enable && yarn install
-
-# Build with increased memory
-ENV NODE_OPTIONS=--max-old-space-size=4096
-RUN yarn build
+RUN corepack enable && yarn install --frozen-lockfile
 
 # Expose port
 EXPOSE 9000
 
-# Start command
-CMD ["yarn", "start:prod"]
+# Start command (skip build since it's pre-built)
+CMD ["yarn", "start"]

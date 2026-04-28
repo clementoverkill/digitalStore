@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(railway *)"
+      "Bash(railway *)",
+      "Bash(yarn build *)"
     ]
   }
 }
