@@ -2,12 +2,11 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json yarn.lock ./
-RUN corepack enable && yarn install
-
-# Copy source code
+# Copy source code first
 COPY . .
+
+# Install dependencies
+RUN corepack enable && yarn install
 
 # Build with increased memory
 ENV NODE_OPTIONS=--max-old-space-size=4096
