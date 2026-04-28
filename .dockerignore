@@ -3,7 +3,6 @@ node_modules
 .env
 .env.test
 .vscode
-.yarn
 *.log
 coverage
 dist
