@@ -2,14 +2,13 @@
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "buildCommand": "yarn install && yarn build",
-    "builder": "NIXPACKS",
-    "watchPatterns": ["src/**", "package.json"]
+    "builder": "NIXPACKS"
   },
   "deploy": {
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
-    "startCommand": "yarn start",
+    "startCommand": "yarn start:prod",
     "preDeployCommand": "npx medusa db:migrate"
   }
 }
